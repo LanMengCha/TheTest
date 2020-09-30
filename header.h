@@ -4,8 +4,14 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstdlib>//产生随机数
+using std::string;
 //const int
 //const int
 //const int
 //unsigned const int
-
+WINDOW* init_window(int start_x,int start_y,int width,int height);
+WINDOW* init_subwin(WINDOW *local_win,int start_x,int start_y,int width,int height);
+void destroy_win(WINDOW *local_win);
+//窗口打印函数重载：
+void print_win(WINDOW *local_win,int start_x,int start_y,string *message);
+void print_win(WINDOW *local_win,int start_x,int start_y,const char * message);

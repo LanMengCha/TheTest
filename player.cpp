@@ -6,7 +6,7 @@ class player
 	    player(int hp,unsigned int atk);//构造函数
         player();
 	    ~player();
-        skill(int sk,int id);
+        void skill(int sk,int id);
 	
     private:
         int health;
@@ -26,5 +26,4 @@ player::player()
 player::~player()
 {
     printw("GAME_OVER");
-    return 0;
 }
