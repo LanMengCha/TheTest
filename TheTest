@@ -1,0 +1,30 @@
+#!/bin/bash
+#
+#
+#没戳你打开bin看见的游戏本体是一个bash脚本
+#芜湖
+#好吧其实三C/C++写的
+#只是菜单用ncurses写太￥……×%&（&）￥了
+#
+#
+dialog --title Testing --msgbox "TheTest" 10 20
+#dialog --menu "TheTest Menu" 20 30 10 1 "Start~~~>" 2 "setting" 3 "help^_^" 4 "Exit The Game"
+#
+#
+#
+#
+for ((;;))
+do
+    dialog --menu "TheTest" 20 30 10 1 "开始游戏" 2 "从源码编译" 3 "设置" 4 "帮助文档" 5 "作者及版权声明" 6 "Langurage/语言" 0 "退出" 2>.temp2
+    selection=$(cat .temp2)
+    case $selection in
+    1)    ./test ;;
+	2)    ./build ;;
+	3)    break ;; #这里是设置，还没写
+	4)    nano .help ;; #这里是帮助文档，也没写
+	5)    break ;; #游戏都没开发完声明个jb的版权
+	6)    break ;; #其他语言的菜单，还没写
+	0)    break ;;
+	*)    dialog -- testbox "好兄弟整点阳间的东西好不好"
+    esac
+done
