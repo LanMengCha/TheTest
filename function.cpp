@@ -8,7 +8,13 @@ WINDOW* init_window(int start_x,int start_y,int width,int height)
     wrefresh(l_win);//显示窗口
     return l_win;
 }
-
+WINDOW* init_window(WIN l_win_i)
+{
+	WINDOW *l_win = newwin(l_win_i.height,l_win_i.width,l_win_i.starty,l_win_i.startx);
+	box(l_win,0,0);
+	wrefresh(l_win);
+	return l_win;
+}
 WINDOW* init_subwin(WINDOW *local_win,int start_x,int start_y,int width,int height)
 {
 	WINDOW *b_win =subwin(local_win,width,height,start_y,start_x);

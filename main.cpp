@@ -7,6 +7,14 @@ int main()
     start_color();//开启颜色功能
     noecho();//终端字符不回显
     getmaxyx(stdscr,*row,*col);//获取长宽的函数，stdscr是默认窗口名
+	if(has_colors() == FALSE)
+	{	
+        char mesg [] = "Your terminal does not support color";
+        mvprintw(*row/2,*col/2,"%s",mesg);
+        endwin();
+        return 0;
+    }
+	start_color();			/* Start color 			*/
     if (*row < 32 || *col < 16)
     {
         char mesg [] = "your terminal is too small to open the game";//string
@@ -23,7 +31,7 @@ int main()
         getch();
         printw("\b\b\b\b\b\b\b\b\b\b");
     }
-    move(11,5);
+/*    move(11,5);
     WINDOW *notice = init_window(1,1,34,32);
     wborder(notice, ' ', '|', '-', '-', '+', '+', '+', '+');
     string *i = new string; *i = "Welcome!_Process\n S to start the game:\n\n F1 to exit the game:\n\n C to set up the game:\n\n $>>:_\n---------------------------------";
@@ -36,6 +44,13 @@ int main()
     refresh();
     getch();
     destroy_win(notice);
+*/
+    
+    werase(stdscr);
+    wborder(stdscr,'.','.','.','.','+','+','+','+');
+    
+    Player I(1,20);
+    getch();
     endwin();//释放内存
     return 0;
 }

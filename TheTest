@@ -19,7 +19,7 @@ do
     selection=$(cat .temp2)
     case $selection in
     1)    ./test ;;
-	2)    ./build ;;
+	2)    g++ -o test function.cpp main.cpp Player.cpp -lncurses ;;
 	3)    break ;; #这里是设置，还没写
 	4)    nano .help ;; #这里是帮助文档，也没写
 	5)    break ;; #游戏都没开发完声明个jb的版权
